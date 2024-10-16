@@ -6,13 +6,19 @@ import { useEffect } from "react";
 
 export default function GlobalError({ error }) {
   useEffect(() => {
-    Sentry.captureException(error);
+    if (error) {
+      Sentry.captureException(error);
+    } else {
+      console.warn("No error object found to capture.");
+    }
   }, [error]);
+
+  const statusCode = error?.statusCode || 500;
 
   return (
     <html>
       <body>
-        <Error />
+        <Error statusCode={statusCode} title={error?.message || "An error occurred"} />
       </body>
     </html>
   );
