@@ -7,14 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Simulating a case-sensitive Linux environment
+    runs-on: windows-latest # Verwende eine Windows-Umgebung für die Builds
 
     steps:
       - uses: actions/checkout@v2
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18" # Use the Node.js version your project needs
+          node-version: "18" # Verwende die passende Node.js-Version
       - name: Install dependencies
         run: npm install
       - name: Run the build
