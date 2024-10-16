@@ -1,7 +1,14 @@
 import { withSentryConfig } from '@sentry/nextjs';
+import path from 'path';
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  webpack: (config) => {
+    // Set up alias for '@' to point to the project root
+    config.resolve.alias['@'] = path.resolve();
+    return config;
+  },
+};
 
 export default withSentryConfig(nextConfig, {
   // For all available options, see:
@@ -9,7 +16,7 @@ export default withSentryConfig(nextConfig, {
 
   // Suppresses source map uploading logs during build
   silent: true,
-  org: "the-cube-enterprise", // Remove extra backtick
+  org: "the-cube-enterprise",
   project: "javascript-nextjs",
 }, {
   // For all available options, see:
@@ -32,8 +39,5 @@ export default withSentryConfig(nextConfig, {
   disableLogger: true,
 
   // Enables automatic instrumentation of Vercel Cron Monitors.
-  // See the following for more information:
-  // https://docs.sentry.io/product/crons/
-  // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
 });
