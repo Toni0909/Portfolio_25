@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "deploy": "vercel --prod"
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint",
+  "deploy": "vercel --prod",
+  "test": "echo \"No tests available\""
+
+
   },
   "dependencies": {
     "@react-three/drei": "^9.105.4",
