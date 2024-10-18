@@ -1,12 +1,14 @@
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import { withSentryConfig } from '@sentry/nextjs';
-import path from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
-    // Add a custom alias for the "@" symbol
-    config.resolve.alias['@'] = path.resolve(__dirname);
-    
+    // your custom webpack config here
     return config;
   },
 };
