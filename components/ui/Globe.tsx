@@ -10,6 +10,7 @@ declare module "@react-three/fiber" {
     threeGlobe: Object3DNode<ThreeGlobe, typeof ThreeGlobe>;
   }
 }
+/* Toni Commit Test */
 
 extend({ ThreeGlobe });
 
